@@ -1,312 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#06345B">
-<title>جامعة تيسمسيلت | إعلام واتصال</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
-:root{
-  --navy:#06345B; --blue:#0879C9; --cyan:#18A6A6; --bg:#f4f7fb;
-  --text:#183247; --muted:#6b7c8c; --white:#fff; --border:#e4ebf2;
-  --shadow:0 10px 30px rgba(6,52,91,.10); --radius:20px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Cairo,Arial,sans-serif;background:var(--bg);color:var(--text)}
-button,input,select{font:inherit}
-button{cursor:pointer;border:0}
-a{text-decoration:none;color:inherit}
-.container{width:min(1120px,92%);margin:auto}
-header{position:sticky;top:0;z-index:50;background:rgba(6,52,91,.97);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.12)}
-.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800}
-.logo{width:46px;height:46px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-items:center;font-size:22px}
-.brand small{display:block;color:#cfe7f8;font-size:10px;font-weight:600}
-.menu{display:flex;gap:8px;align-items:center}
-.menu a{padding:10px 12px;border-radius:12px;color:#fff;font-size:14px}
-.menu a:hover,.menu a.active{background:rgba(255,255,255,.13)}
-.menu-btn{display:none;background:transparent;color:#fff;font-size:28px}
-.hero{min-height:500px;display:grid;place-items:center;position:relative;overflow:hidden;background:
-linear-gradient(135deg,rgba(6,52,91,.96),rgba(8,121,201,.76)),
-radial-gradient(circle at 20% 20%,#18a6a6,transparent 30%);color:#fff}
-.hero:after{content:"";position:absolute;inset:auto -10% -80px;height:160px;background:#fff;border-radius:50% 50% 0 0/100% 100% 0 0}
-.hero-inner{position:relative;z-index:1;text-align:center;padding:70px 0 100px}
-.badge{display:inline-block;background:#18a6a6;color:#fff;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:700}
-.hero h1{font-size:clamp(30px,6vw,58px);margin:18px 0 6px}
-.hero h2{font-size:clamp(18px,3vw,28px);font-weight:600;margin:0;color:#e3f3ff}
-.hero p{max-width:700px;margin:20px auto 30px;color:#e7f5ff}
-.cta{display:inline-flex;gap:9px;align-items:center;background:#fff;color:var(--navy);padding:13px 22px;border-radius:14px;font-weight:800;box-shadow:var(--shadow)}
-section{padding:65px 0}
-.section-head{text-align:center;margin-bottom:30px}
-.section-head h2{margin:0 0 8px;color:var(--navy);font-size:30px}
-.section-head p{margin:0;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-.feature{transition:.2s;cursor:pointer}
-.feature:hover{transform:translateY(-4px)}
-.icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:25px;background:#eaf5fd;margin-bottom:14px}
-.card h3{margin:0 0 7px;color:var(--navy)}
-.card p{color:var(--muted);margin:0;line-height:1.8;font-size:14px}
-.tabs{display:flex;gap:8px;overflow:auto;padding-bottom:8px;margin-bottom:18px}
-.tabs button{white-space:nowrap;padding:10px 16px;border-radius:12px;background:#fff;border:1px solid var(--border);color:var(--navy)}
-.tabs button.active{background:var(--navy);color:#fff}
-.list{display:grid;gap:12px}
-.item{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:15px}
-.item-icon{width:45px;height:45px;border-radius:12px;background:#eaf5fd;display:grid;place-items:center;font-size:20px;flex:none}
-.item-main{flex:1}
-.item h4{margin:0 0 4px}
-.meta{font-size:12px;color:var(--muted)}
-.btn{background:var(--blue);color:#fff;border-radius:11px;padding:9px 13px;font-weight:700}
-.btn.secondary{background:#eef5fa;color:var(--navy)}
-.student{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-form{display:grid;gap:13px}
-label{font-size:13px;font-weight:700;color:var(--navy)}
-input,select{width:100%;padding:13px 14px;border:1px solid var(--border);border-radius:12px;outline:none;background:#fff}
-input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #0879c91c}
-.notice{padding:12px 14px;border-radius:12px;background:#eef9f7;color:#176a64;font-size:13px}
-.games{grid-template-columns:repeat(4,1fr)}
-.game-card{overflow:hidden;padding:0}
-.game-cover{height:150px;display:grid;place-items:center;background:linear-gradient(135deg,#06345b,#0879c9);color:#fff;font-size:54px}
-.game-body{padding:16px}
-.game-body h3{margin:0 0 5px}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.62);display:none;place-items:center;z-index:100;padding:15px}
-.modal.show{display:grid}
-.modal-box{background:#fff;border-radius:22px;width:min(520px,100%);max-height:92vh;overflow:auto;padding:20px;position:relative}
-.close{position:absolute;left:15px;top:12px;background:#eef3f7;color:var(--navy);width:38px;height:38px;border-radius:50%;font-size:20px}
-.game-area{display:grid;place-items:center;margin-top:15px}
-#snakeCanvas{background:#061c30;border-radius:15px;max-width:100%;touch-action:none}
-.xo{display:grid;grid-template-columns:repeat(3,85px);gap:8px;justify-content:center}
-.xo button{width:85px;height:85px;background:#edf5fa;border-radius:14px;font-size:36px;color:var(--navy)}
-.chess{display:grid;grid-template-columns:repeat(8,1fr);width:min(420px,90vw);aspect-ratio:1;border:5px solid var(--navy)}
-.chess div{display:grid;place-items:center;font-size:clamp(18px,5vw,32px);cursor:pointer}
-.chess div:nth-child(odd){background:#f0d9b5}.chess div:nth-child(even){background:#b58863}
-.chess div:nth-child(16n+1),.chess div:nth-child(16n+3),.chess div:nth-child(16n+5),.chess div:nth-child(16n+7),
-.chess div:nth-child(16n+10),.chess div:nth-child(16n+12),.chess div:nth-child(16n+14),.chess div:nth-child(16n+16){background:#b58863}
-footer{background:var(--navy);color:#fff;padding:30px 0;text-align:center}
-footer p{margin:5px;color:#cfe1ef;font-size:13px}
-.hidden{display:none!important}
-#toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:11px 18px;border-radius:12px;z-index:200;display:none}
-.bottom-nav{display:none}
-@media(max-width:800px){
- .menu{display:none;position:absolute;top:70px;right:4%;left:4%;background:var(--navy);padding:10px;border-radius:0 0 16px 16px;flex-direction:column;align-items:stretch}
- .menu.open{display:flex}.menu a{padding:12px}
- .menu-btn{display:block}.grid{grid-template-columns:1fr 1fr}.games{grid-template-columns:1fr 1fr}
- .student{grid-template-columns:1fr}.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:62px;background:#fff;border-top:1px solid var(--border);z-index:60;display:flex;justify-content:space-around;align-items:center;box-shadow:0 -4px 18px #00000010}
- .bottom-nav a{font-size:11px;color:#647788;text-align:center}.bottom-nav a span{display:block;font-size:20px}.bottom-nav a.active{color:var(--blue)}
- body{padding-bottom:62px}
-}
-@media(max-width:520px){
- .grid,.games{grid-template-columns:1fr}.hero{min-height:470px}.hero-inner{padding-top:50px}.item{align-items:flex-start}.item .btn{padding:8px 10px;font-size:12px}
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>فضاء علوم الإعلام والاتصال — جامعة تيسمسيلت</title>
+  <meta name="description" content="منصة طلبة وأساتذة علوم الإعلام والاتصال بجامعة تيسمسيلت">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chess.js@1.0.0/dist/chess.min.js"></script>
 </head>
 <body>
-
-<header>
- <div class="container nav">
-  <a href="#home" class="brand"><div class="logo">🎓</div><div>جامعة تيسمسيلت<small>كلية العلوم الإنسانية والاجتماعية · إعلام واتصال</small></div></a>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-  <nav class="menu" id="menu">
-   <a href="#home">الرئيسية</a><a href="#courses">الدروس</a><a href="#research">البحوث</a><a href="#sources">المصادر</a><a href="#student">الطلبة</a><a href="#games">الألعاب</a><a href="#about">عن الموقع</a>
+<header class="topbar">
+  <div class="brand"><img src="assets/logo.jpg" alt="جامعة تيسمسيلت"><div><b>فضاء علوم الإعلام والاتصال</b><span>جامعة تيسمسيلت</span></div></div>
+  <nav>
+    <a href="#home">الرئيسية</a><a href="#years">السنوات</a><a href="#teachers">الأساتذة</a><a href="#games">الألعاب</a>
   </nav>
- </div>
+  <div id="authActions"></div>
 </header>
 
-<main id="home">
-<section class="hero">
- <div class="container hero-inner">
-  <span class="badge">إعلام واتصال</span>
-  <h1>جامعة تيسمسيلت</h1>
-  <h2>منصة دراسية تعليمية وترفيهية</h2>
-  <p>واجهة موحدة للطلاب لمشاركة الدروس، البحوث، المصادر والمراجع، مع مساحة ترفيهية وألعاب خفيفة.</p>
-  <a class="cta" href="#courses">استكشف المنصة ←</a>
- </div>
-</section>
-
-<section>
- <div class="container">
-  <div class="section-head"><h2>ماذا تجد هنا؟</h2><p>كل ما يحتاجه طالب الإعلام والاتصال في مكان واحد</p></div>
-  <div class="grid">
-   <div class="card feature" onclick="go('courses')"><div class="icon">📚</div><h3>الدروس والمحاضرات</h3><p>تنظيم الدروس حسب السنة والمقياس مع روابط العرض والتحميل.</p></div>
-   <div class="card feature" onclick="go('research')"><div class="icon">📝</div><h3>البحوث والأعمال</h3><p>مساحة لتجميع البحوث والمذكرات والأعمال الموجهة.</p></div>
-   <div class="card feature" onclick="go('sources')"><div class="icon">📖</div><h3>المصادر والمراجع</h3><p>كتب ومقالات وروابط وقواعد بيانات مفيدة للتخصص.</p></div>
-   <div class="card feature" onclick="go('student')"><div class="icon">👨‍🎓</div><h3>فضاء الطلبة</h3><p>إدخال الاسم ورقم التسجيل بشكل اختياري للتعريف بالطالب.</p></div>
-   <div class="card feature" onclick="go('games')"><div class="icon">🎮</div><h3>الترفيه والألعاب</h3><p>شطرنج، Snake، XO وألعاب خفيفة لكسر روتين الدراسة.</p></div>
-   <div class="card feature" onclick="go('about')"><div class="icon">ℹ️</div><h3>عن الموقع</h3><p>تعريف بالمنصة وأهدافها وطريقة المساهمة فيها.</p></div>
+<main>
+<section id="home" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="eyebrow">MEDIA • COMMUNICATION • TISSEMSILT</span>
+    <h1>منصتك الجامعية<br><em>للتعلم والتواصل</em></h1>
+    <p>فضاء منظم لطلبة السنة الأولى والثانية: التوقيت، المحاضرات، المصادر، المراجعة، الأساتذة والألعاب الذهنية.</p>
+    <div class="actions"><a class="btn primary" href="#years">استكشف السنوات</a><button class="btn ghost" onclick="openAuth('login')">تسجيل الدخول</button></div>
   </div>
- </div>
 </section>
 
-<section id="courses">
- <div class="container">
-  <div class="section-head"><h2>📚 الدروس والمحاضرات</h2><p>اختر السنة الدراسية ثم استعرض المحتوى</p></div>
-  <div class="tabs" id="courseTabs">
-   <button class="active" onclick="filterCourses('all',this)">كل السنوات</button><button onclick="filterCourses('1',this)">السنة الأولى</button><button onclick="filterCourses('2',this)">السنة الثانية</button><button onclick="filterCourses('3',this)">السنة الثالثة</button><button onclick="filterCourses('m',this)">الماستر</button>
+<section id="years" class="section">
+  <div class="section-head"><span>01 / PROGRAMME</span><h2>المستويات الدراسية</h2><p>اختر سنتك للوصول إلى فضائك الدراسي.</p></div>
+  <div class="year-grid">
+    <button class="year-card" onclick="openYear(1)"><span>LICENCE</span><strong>السنة الأولى</strong><small>علوم إنسانية / علوم الإعلام والاتصال</small><b>←</b></button>
+    <button class="year-card" onclick="openYear(2)"><span>LICENCE</span><strong>السنة الثانية</strong><small>علوم الإعلام والاتصال</small><b>←</b></button>
   </div>
-  <div class="list" id="courseList"></div>
- </div>
 </section>
 
-<section id="research">
- <div class="container">
-  <div class="section-head"><h2>📝 البحوث والأعمال</h2><p>نماذج جاهزة لإضافة بحوث الطلبة</p></div>
-  <div class="list" id="researchList"></div>
- </div>
-</section>
+<section id="teachers" class="section dark"><div class="section-head"><span>02 / TEACHERS</span><h2>الأساتذة</h2><p>القائمة تُحدّث مباشرة من لوحة المشرف.</p></div><div id="teacherGrid" class="teacher-grid"></div></section>
 
-<section id="sources">
- <div class="container">
-  <div class="section-head"><h2>📖 المصادر والمراجع</h2><p>مكتبة رقمية قابلة للتوسع</p></div>
-  <div class="grid">
-   <div class="card"><div class="icon">📚</div><h3>كتب</h3><p>كتب ومراجع في علوم الإعلام والاتصال.</p><br><button class="btn" onclick="toast('أضف روابط الكتب هنا لاحقًا')">استعراض</button></div>
-   <div class="card"><div class="icon">📰</div><h3>مقالات علمية</h3><p>مقالات ودراسات مرتبطة بموضوعات التخصص.</p><br><button class="btn" onclick="toast('أضف المقالات والروابط هنا لاحقًا')">استعراض</button></div>
-   <div class="card"><div class="icon">🔗</div><h3>روابط مفيدة</h3><p>مواقع أكاديمية ومصادر بحثية للطلاب.</p><br><button class="btn" onclick="toast('أضف الروابط الأكاديمية هنا لاحقًا')">استعراض</button></div>
-  </div>
- </div>
-</section>
-
-<section id="student">
- <div class="container">
-  <div class="section-head"><h2>👨‍🎓 فضاء الطلبة</h2><p>الدخول اختياري ولا يمنع أي شخص من تصفح الموقع</p></div>
-  <div class="student">
-   <div class="card">
-    <form onsubmit="studentLogin(event)">
-     <div><label>الاسم الكامل</label><input id="studentName" required placeholder="مثال: محمد أحمد"></div>
-     <div><label>رقم التسجيل</label><input id="studentNumber" required placeholder="مثال: 202600123"></div>
-     <button class="btn" type="submit">دخول إلى فضاء الطالب</button>
-     <div class="notice">في هذه النسخة، البيانات محفوظة محليًا على جهازك فقط. يمكن لاحقًا ربطها بقاعدة بيانات وحسابات حقيقية.</div>
-    </form>
-   </div>
-   <div class="card" id="studentWelcome">
-    <div class="icon">🎓</div><h3>مرحبًا بك</h3><p>بعد تسجيل الدخول ستظهر هنا رسالة ترحيب. أما المحتوى العام، فهو متاح للجميع دون تسجيل.</p>
-   </div>
-  </div>
- </div>
-</section>
-
-<section id="games">
- <div class="container">
-  <div class="section-head"><h2>🎮 الترفيه والألعاب</h2><p>ألعاب خفيفة تعمل مباشرة داخل الموقع</p></div>
-  <div class="grid games">
-   <div class="card game-card"><div class="game-cover">♟️</div><div class="game-body"><h3>شطرنج</h3><p>لوحة شطرنج تجريبية للعب المحلي.</p><br><button class="btn" onclick="openGame('chess')">ابدأ اللعب</button></div></div>
-   <div class="card game-card"><div class="game-cover">🐍</div><div class="game-body"><h3>لعبة الدودة</h3><p>اجمع الطعام وتجنب الاصطدام.</p><br><button class="btn" onclick="openGame('snake')">ابدأ اللعب</button></div></div>
-   <div class="card game-card"><div class="game-cover">❌⭕</div><div class="game-body"><h3>XO</h3><p>العب ضد صديق على نفس الجهاز.</p><br><button class="btn" onclick="openGame('xo')">ابدأ اللعب</button></div></div>
-   <div class="card game-card"><div class="game-cover">🧠</div><div class="game-body"><h3>أسئلة ثقافية</h3><p>اختبر معلوماتك في جولة سريعة.</p><br><button class="btn" onclick="openGame('quiz')">ابدأ</button></div></div>
-  </div>
- </div>
-</section>
-
-<section id="about">
- <div class="container">
-  <div class="section-head"><h2>ℹ️ عن الموقع</h2><p>منصة طلابية تعليمية وترفيهية</p></div>
-  <div class="card">
-   <h3>ما هدف المنصة؟</h3>
-   <p>إنشاء واجهة رقمية بسيطة تجمع محتوى تخصص الإعلام والاتصال: الدروس، البحوث، المراجع والمصادر، مع مساحة ترفيهية تساعد على جعل تجربة الطالب أكثر راحة.</p>
-   <br><h3>ملاحظة</h3>
-   <p>هذه النسخة الأولى تجريبية. الملفات والروابط المعروضة يمكن استبدالها لاحقًا بمحتواك الحقيقي، ويمكن إضافة لوحة تحكم تسمح لك برفع PDF وإدارة السنوات والمقاييس والبحوث.</p>
-  </div>
- </div>
+<section id="games" class="section"><div class="section-head"><span>03 / BREAK TIME</span><h2>استراحة ذكية</h2><p>ألعاب بسيطة للتركيز والتحدي، ومنها شطرنج أونلاين بين الطلبة المسجلين.</p></div>
+<div class="game-grid">
+  <button class="game-card" onclick="openChess()"><b>♟</b><strong>الشطرنج</strong><span>محلي أو أونلاين مع طلبة الجامعة</span></button>
+  <button class="game-card" onclick="memoryGame()"><b>🧠</b><strong>لعبة الذاكرة</strong><span>اختبر التركيز</span></button>
+  <button class="game-card" onclick="quizGame()"><b>?</b><strong>أسئلة سريعة</strong><span>اختبر معلوماتك</span></button>
+</div>
 </section>
 </main>
 
-<footer>
- <div class="container">
-  <strong>جامعة تيسمسيلت · كلية العلوم الإنسانية والاجتماعية · إعلام واتصال</strong>
-  <p>دراسة · بحث · معرفة · ترفيه</p>
-  <p>© 2026 المنصة الطلابية — نسخة أولى تجريبية</p>
- </div>
-</footer>
+<footer><span>© 2026 فضاء علوم الإعلام والاتصال</span><span>جامعة تيسمسيلت</span></footer>
 
-<div class="bottom-nav">
- <a href="#home" class="active"><span>⌂</span>الرئيسية</a>
- <a href="#courses"><span>📚</span>الدروس</a>
- <a href="#research"><span>📝</span>البحوث</a>
- <a href="#sources"><span>📖</span>المصادر</a>
- <a href="#games"><span>🎮</span>الألعاب</a>
-</div>
-
-<div id="toast"></div>
-
-<div class="modal" id="gameModal">
- <div class="modal-box">
-  <button class="close" onclick="closeGame()">×</button>
-  <div id="gameContent"></div>
- </div>
-</div>
-
-<script>
-const courses=[
- {y:'1',title:'مدخل إلى علوم الإعلام والاتصال',type:'محاضرة',meta:'السنة الأولى · PDF'},
- {y:'1',title:'تاريخ وسائل الإعلام',type:'محاضرة',meta:'السنة الأولى · PDF'},
- {y:'2',title:'نظرية الإعلام والاتصال',type:'محاضرة',meta:'السنة الثانية · PDF'},
- {y:'2',title:'تكنولوجيا الإعلام والاتصال',type:'TD',meta:'السنة الثانية · ملف'},
- {y:'3',title:'الإعلام الرقمي والرأي العام',type:'محاضرة',meta:'السنة الثالثة · PDF'},
- {y:'3',title:'منهجية البحث العلمي',type:'محاضرة',meta:'السنة الثالثة · PDF'},
- {y:'m',title:'استراتيجية الاتصال في المؤسسات',type:'محاضرة',meta:'الماستر · PDF'}
-];
-const researches=[
- 'دور الإعلام الرقمي في تشكيل الرأي العام',
- 'تأثير مواقع التواصل الاجتماعي على الشباب',
- 'استراتيجية الاتصال في المؤسسات',
- 'تحليل محتوى وسائل الإعلام الوطنية',
- 'دور الإعلام في تعزيز القيم المجتمعية'
-];
-function renderCourses(filter='all'){
- const list=document.getElementById('courseList');
- list.innerHTML=courses.filter(c=>filter==='all'||c.y===filter).map(c=>`
- <div class="item"><div class="item-icon">📘</div><div class="item-main"><h4>${c.title}</h4><div class="meta">${c.meta} · ${c.type}</div></div><button class="btn secondary" onclick="toast('مكان الملف جاهز — أضف رابط PDF الحقيقي لاحقًا')">عرض</button></div>`).join('');
-}
-function filterCourses(f,btn){document.querySelectorAll('#courseTabs button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');renderCourses(f)}
-document.getElementById('researchList').innerHTML=researches.map((r,i)=>`
- <div class="item"><div class="item-icon">📄</div><div class="item-main"><h4>${r}</h4><div class="meta">بحث نموذجي · ${i%2?'السنة الثانية':'السنة الثالثة'}</div></div><button class="btn secondary" onclick="toast('مكان ملف البحث جاهز للإضافة')">عرض</button></div>`).join('');
-renderCourses();
-
-function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});closeMenu()}
-function toggleMenu(){document.getElementById('menu').classList.toggle('open')}
-function closeMenu(){document.getElementById('menu').classList.remove('open')}
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display='none',2500)}
-function studentLogin(e){
- e.preventDefault();
- const name=document.getElementById('studentName').value.trim(), num=document.getElementById('studentNumber').value.trim();
- localStorage.setItem('student',JSON.stringify({name,num}));
- document.getElementById('studentWelcome').innerHTML=`<div class="icon">👋</div><h3>مرحبًا ${name}</h3><p>تم تسجيل بياناتك محليًا على هذا الجهاز.</p><div class="notice">رقم التسجيل: ${num}</div>`;
- toast('تم تسجيل الدخول محليًا');
-}
-
-const modal=document.getElementById('gameModal');
-function openGame(type){modal.classList.add('show');if(type==='snake')snakeGame();else if(type==='xo')xoGame();else if(type==='chess')chessGame();else quizGame()}
-function closeGame(){modal.classList.remove('show');if(window.snakeTimer)clearInterval(window.snakeTimer)}
-
-function xoGame(){
- document.getElementById('gameContent').innerHTML=`<h2>❌⭕ لعبة XO</h2><p id="xoStatus">دور اللاعب X</p><div class="xo" id="xoBoard"></div><br><button class="btn" onclick="xoGame()">إعادة اللعب</button>`;
- let board=Array(9).fill(''),turn='X',over=false;
- const wins=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
- const el=document.getElementById('xoBoard'),st=document.getElementById('xoStatus');
- board.forEach((_,i)=>{let b=document.createElement('button');b.onclick=()=>{if(board[i]||over)return;board[i]=turn;b.textContent=turn;let w=wins.find(x=>x.every(j=>board[j]===turn));if(w){st.textContent=`الفائز: ${turn} 🎉`;over=true}else if(board.every(Boolean)){st.textContent='تعادل 🤝';over=true}else{turn=turn==='X'?'O':'X';st.textContent=`دور اللاعب ${turn}`}};el.appendChild(b)});
-}
-function quizGame(){
- document.getElementById('gameContent').innerHTML=`<h2>🧠 أسئلة ثقافية</h2><p>أي وسيلة تعد من وسائل الإعلام الرقمية؟</p><div class="list">
-<button class="btn secondary" onclick="toast('إجابة صحيحة 🎉')">المواقع الإلكترونية</button>
-<button class="btn secondary" onclick="toast('حاول مرة أخرى')">المذياع فقط</button>
-<button class="btn secondary" onclick="toast('حاول مرة أخرى')">الملصق الورقي فقط</button></div>`;
-}
-function chessGame(){
- const pieces=['♜','♞','♝','♛','♚','♝','♞','♜','♟','♟','♟','♟','♟','♟','♟','♟','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','♙','♙','♙','♙','♙','♙','♙','♙','♖','♘','♗','♕','♔','♗','♘','♖'];
- document.getElementById('gameContent').innerHTML='<h2>♟️ شطرنج</h2><p>لوحة تجريبية محلية. يمكن تطويرها لاحقًا إلى لعبة كاملة.</p><div class="chess">'+pieces.map(p=>`<div>${p}</div>`).join('')+'</div>';
-}
-function snakeGame(){
- document.getElementById('gameContent').innerHTML=`<h2>🐍 لعبة الدودة</h2><p>استخدم الأسهم أو اسحب على الشاشة.</p><div class="game-area"><canvas id="snakeCanvas" width="320" height="320"></canvas><p id="snakeScore">النقاط: 0</p><button class="btn" onclick="snakeGame()">إعادة</button></div>`;
- const c=document.getElementById('snakeCanvas'),ctx=c.getContext('2d'),n=16,size=20;
- let snake=[{x:8,y:8}],dir={x:1,y:0},food={x:12,y:8},score=0;
- function place(){do{food={x:Math.floor(Math.random()*n),y:Math.floor(Math.random()*n)}}while(snake.some(s=>s.x===food.x&&s.y===food.y))}
- function draw(){ctx.clearRect(0,0,c.width,c.height);ctx.fillStyle='#18a6a6';ctx.fillRect(food.x*size,food.y*size,size-2,size-2);ctx.fillStyle='#0879c9';snake.forEach(s=>ctx.fillRect(s.x*size,s.y*size,size-2,size-2))}
- function step(){let h={x:snake[0].x+dir.x,y:snake[0].y+dir.y};if(h.x<0||h.y<0||h.x>=n||h.y>=n||snake.some(s=>s.x===h.x&&s.y===h.y)){clearInterval(window.snakeTimer);toast('انتهت اللعبة — النقاط: '+score);return}snake.unshift(h);if(h.x===food.x&&h.y===food.y){score++;document.getElementById('snakeScore').textContent='النقاط: '+score;place()}else snake.pop();draw()}
- document.onkeydown=e=>{if(e.key==='ArrowUp'&&dir.y===0)dir={x:0,y:-1};if(e.key==='ArrowDown'&&dir.y===0)dir={x:0,y:1};if(e.key==='ArrowLeft'&&dir.x===0)dir={x:-1,y:0};if(e.key==='ArrowRight'&&dir.x===0)dir={x:1,y:0}};
- let sx=0,sy=0;c.ontouchstart=e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY};c.ontouchend=e=>{let dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>Math.abs(dy)){if(dx>0&&dir.x===0)dir={x:1,y:0};else if(dx<0&&dir.x===0)dir={x:-1,y:0}}else{if(dy>0&&dir.y===0)dir={x:0,y:1};else if(dy<0&&dir.y===0)dir={x:0,y:-1}}};
- draw();clearInterval(window.snakeTimer);window.snakeTimer=setInterval(step,140);
-}
-</script>
-</body>
-</html>
+<div id="modal" class="modal" hidden><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body></html>
